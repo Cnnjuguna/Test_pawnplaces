@@ -20,6 +20,8 @@ flask-wtf = "*"
 email-validator = "*"
 python-dotenv = "*"
 sqlalchemy = "*"
+honcho = "*"
+importlib-metadata = "*"
 
 [dev-packages]
 
