@@ -33,7 +33,7 @@ pytz==2022.4
 six==1.16.0
 SQLAlchemy==2.0.21
 sqlalchemy-serializer==1.4.1
-typing_extensions==4.8.0
+typing_extensions==4.7.1
 urllib3==2.0.6
 werkzeug==2.2.2
 WTForms==3.0.1
