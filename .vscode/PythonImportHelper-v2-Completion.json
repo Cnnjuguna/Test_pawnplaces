@@ -1,0 +1,965 @@
+[
+    {
+        "label": "op",
+        "importPath": "alembic",
+        "description": "alembic",
+        "isExtraImport": true,
+        "detail": "alembic",
+        "documentation": {}
+    },
+    {
+        "label": "op",
+        "importPath": "alembic",
+        "description": "alembic",
+        "isExtraImport": true,
+        "detail": "alembic",
+        "documentation": {}
+    },
+    {
+        "label": "context",
+        "importPath": "alembic",
+        "description": "alembic",
+        "isExtraImport": true,
+        "detail": "alembic",
+        "documentation": {}
+    },
+    {
+        "label": "sqlalchemy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "ForeignKey",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "logging",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "logging",
+        "description": "logging",
+        "detail": "logging",
+        "documentation": {}
+    },
+    {
+        "label": "fileConfig",
+        "importPath": "logging.config",
+        "description": "logging.config",
+        "isExtraImport": true,
+        "detail": "logging.config",
+        "documentation": {}
+    },
+    {
+        "label": "current_app",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "jsonify",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "make_response",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "SQLAlchemy",
+        "importPath": "flask_sqlalchemy",
+        "description": "flask_sqlalchemy",
+        "isExtraImport": true,
+        "detail": "flask_sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "SQLAlchemy",
+        "importPath": "flask_sqlalchemy",
+        "description": "flask_sqlalchemy",
+        "isExtraImport": true,
+        "detail": "flask_sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Migrate",
+        "importPath": "flask_migrate",
+        "description": "flask_migrate",
+        "isExtraImport": true,
+        "detail": "flask_migrate",
+        "documentation": {}
+    },
+    {
+        "label": "CORS",
+        "importPath": "flask_cors",
+        "description": "flask_cors",
+        "isExtraImport": true,
+        "detail": "flask_cors",
+        "documentation": {}
+    },
+    {
+        "label": "CORS",
+        "importPath": "flask_cors",
+        "description": "flask_cors",
+        "isExtraImport": true,
+        "detail": "flask_cors",
+        "documentation": {}
+    },
+    {
+        "label": "Api",
+        "importPath": "flask_restful",
+        "description": "flask_restful",
+        "isExtraImport": true,
+        "detail": "flask_restful",
+        "documentation": {}
+    },
+    {
+        "label": "Resource",
+        "importPath": "flask_restful",
+        "description": "flask_restful",
+        "isExtraImport": true,
+        "detail": "flask_restful",
+        "documentation": {}
+    },
+    {
+        "label": "reqparse",
+        "importPath": "flask_restful",
+        "description": "flask_restful",
+        "isExtraImport": true,
+        "detail": "flask_restful",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "DogHouse",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "Review",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "DogHouse",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "Review",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "Marshmallow",
+        "importPath": "flask_marshmallow",
+        "description": "flask_marshmallow",
+        "isExtraImport": true,
+        "detail": "flask_marshmallow",
+        "documentation": {}
+    },
+    {
+        "label": "FlaskForm",
+        "importPath": "flask_wtf",
+        "description": "flask_wtf",
+        "isExtraImport": true,
+        "detail": "flask_wtf",
+        "documentation": {}
+    },
+    {
+        "label": "StringField",
+        "importPath": "wtforms",
+        "description": "wtforms",
+        "isExtraImport": true,
+        "detail": "wtforms",
+        "documentation": {}
+    },
+    {
+        "label": "PasswordField",
+        "importPath": "wtforms",
+        "description": "wtforms",
+        "isExtraImport": true,
+        "detail": "wtforms",
+        "documentation": {}
+    },
+    {
+        "label": "SubmitField",
+        "importPath": "wtforms",
+        "description": "wtforms",
+        "isExtraImport": true,
+        "detail": "wtforms",
+        "documentation": {}
+    },
+    {
+        "label": "BooleanField",
+        "importPath": "wtforms",
+        "description": "wtforms",
+        "isExtraImport": true,
+        "detail": "wtforms",
+        "documentation": {}
+    },
+    {
+        "label": "TextAreaField",
+        "importPath": "wtforms",
+        "description": "wtforms",
+        "isExtraImport": true,
+        "detail": "wtforms",
+        "documentation": {}
+    },
+    {
+        "label": "SelectField",
+        "importPath": "wtforms",
+        "description": "wtforms",
+        "isExtraImport": true,
+        "detail": "wtforms",
+        "documentation": {}
+    },
+    {
+        "label": "IntegerField",
+        "importPath": "wtforms",
+        "description": "wtforms",
+        "isExtraImport": true,
+        "detail": "wtforms",
+        "documentation": {}
+    },
+    {
+        "label": "InputRequired",
+        "importPath": "wtforms.validators",
+        "description": "wtforms.validators",
+        "isExtraImport": true,
+        "detail": "wtforms.validators",
+        "documentation": {}
+    },
+    {
+        "label": "Length",
+        "importPath": "wtforms.validators",
+        "description": "wtforms.validators",
+        "isExtraImport": true,
+        "detail": "wtforms.validators",
+        "documentation": {}
+    },
+    {
+        "label": "Email",
+        "importPath": "wtforms.validators",
+        "description": "wtforms.validators",
+        "isExtraImport": true,
+        "detail": "wtforms.validators",
+        "documentation": {}
+    },
+    {
+        "label": "EqualTo",
+        "importPath": "wtforms.validators",
+        "description": "wtforms.validators",
+        "isExtraImport": true,
+        "detail": "wtforms.validators",
+        "documentation": {}
+    },
+    {
+        "label": "ValidationError",
+        "importPath": "wtforms.validators",
+        "description": "wtforms.validators",
+        "isExtraImport": true,
+        "detail": "wtforms.validators",
+        "documentation": {}
+    },
+    {
+        "label": "NumberRange",
+        "importPath": "wtforms.validators",
+        "description": "wtforms.validators",
+        "isExtraImport": true,
+        "detail": "wtforms.validators",
+        "documentation": {}
+    },
+    {
+        "label": "cloudinary",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "cloudinary",
+        "description": "cloudinary",
+        "detail": "cloudinary",
+        "documentation": {}
+    },
+    {
+        "label": "cloudinary.uploader",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "cloudinary.uploader",
+        "description": "cloudinary.uploader",
+        "detail": "cloudinary.uploader",
+        "documentation": {}
+    },
+    {
+        "label": "cloudinary.api",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "cloudinary.api",
+        "description": "cloudinary.api",
+        "detail": "cloudinary.api",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "datetime",
+        "description": "datetime",
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "SerializerMixin",
+        "importPath": "sqlalchemy_serializer",
+        "description": "sqlalchemy_serializer",
+        "isExtraImport": true,
+        "detail": "sqlalchemy_serializer",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "Faker",
+        "importPath": "faker",
+        "description": "faker",
+        "isExtraImport": true,
+        "detail": "faker",
+        "documentation": {}
+    },
+    {
+        "label": "random",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "random",
+        "description": "random",
+        "detail": "random",
+        "documentation": {}
+    },
+    {
+        "label": "upgrade",
+        "kind": 2,
+        "importPath": "app.migrations.versions.51846c49f52f_",
+        "description": "app.migrations.versions.51846c49f52f_",
+        "peekOfCode": "def upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('doghouses',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('name', sa.String(length=200), nullable=True),\n    sa.Column('location', sa.String(), nullable=True),\n    sa.Column('description', sa.String(length=500), nullable=True),\n    sa.Column('price_per_night', sa.Float(), nullable=True),\n    sa.Column('image_url', sa.String(), nullable=True),\n    sa.Column('amenities', sa.String(), nullable=True),",
+        "detail": "app.migrations.versions.51846c49f52f_",
+        "documentation": {}
+    },
+    {
+        "label": "downgrade",
+        "kind": 2,
+        "importPath": "app.migrations.versions.51846c49f52f_",
+        "description": "app.migrations.versions.51846c49f52f_",
+        "peekOfCode": "def downgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('birds',\n    sa.Column('id', sa.INTEGER(), autoincrement=True, nullable=False),\n    sa.Column('name', sa.VARCHAR(), autoincrement=False, nullable=True),\n    sa.Column('species', sa.VARCHAR(), autoincrement=False, nullable=True),\n    sa.Column('image', sa.VARCHAR(), autoincrement=False, nullable=True),\n    sa.PrimaryKeyConstraint('id', name='birds_pkey')\n    )\n    op.drop_table('reviews')",
+        "detail": "app.migrations.versions.51846c49f52f_",
+        "documentation": {}
+    },
+    {
+        "label": "revision",
+        "kind": 5,
+        "importPath": "app.migrations.versions.51846c49f52f_",
+        "description": "app.migrations.versions.51846c49f52f_",
+        "peekOfCode": "revision = '51846c49f52f'\ndown_revision = 'c93a14d1aa19'\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('doghouses',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('name', sa.String(length=200), nullable=True),\n    sa.Column('location', sa.String(), nullable=True),",
+        "detail": "app.migrations.versions.51846c49f52f_",
+        "documentation": {}
+    },
+    {
+        "label": "down_revision",
+        "kind": 5,
+        "importPath": "app.migrations.versions.51846c49f52f_",
+        "description": "app.migrations.versions.51846c49f52f_",
+        "peekOfCode": "down_revision = 'c93a14d1aa19'\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('doghouses',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('name', sa.String(length=200), nullable=True),\n    sa.Column('location', sa.String(), nullable=True),\n    sa.Column('description', sa.String(length=500), nullable=True),",
+        "detail": "app.migrations.versions.51846c49f52f_",
+        "documentation": {}
+    },
+    {
+        "label": "branch_labels",
+        "kind": 5,
+        "importPath": "app.migrations.versions.51846c49f52f_",
+        "description": "app.migrations.versions.51846c49f52f_",
+        "peekOfCode": "branch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('doghouses',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('name', sa.String(length=200), nullable=True),\n    sa.Column('location', sa.String(), nullable=True),\n    sa.Column('description', sa.String(length=500), nullable=True),\n    sa.Column('price_per_night', sa.Float(), nullable=True),",
+        "detail": "app.migrations.versions.51846c49f52f_",
+        "documentation": {}
+    },
+    {
+        "label": "depends_on",
+        "kind": 5,
+        "importPath": "app.migrations.versions.51846c49f52f_",
+        "description": "app.migrations.versions.51846c49f52f_",
+        "peekOfCode": "depends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('doghouses',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('name', sa.String(length=200), nullable=True),\n    sa.Column('location', sa.String(), nullable=True),\n    sa.Column('description', sa.String(length=500), nullable=True),\n    sa.Column('price_per_night', sa.Float(), nullable=True),\n    sa.Column('image_url', sa.String(), nullable=True),",
+        "detail": "app.migrations.versions.51846c49f52f_",
+        "documentation": {}
+    },
+    {
+        "label": "upgrade",
+        "kind": 2,
+        "importPath": "app.migrations.versions.c93a14d1aa19_",
+        "description": "app.migrations.versions.c93a14d1aa19_",
+        "peekOfCode": "def upgrade():\n    pass\ndef downgrade():\n    pass",
+        "detail": "app.migrations.versions.c93a14d1aa19_",
+        "documentation": {}
+    },
+    {
+        "label": "downgrade",
+        "kind": 2,
+        "importPath": "app.migrations.versions.c93a14d1aa19_",
+        "description": "app.migrations.versions.c93a14d1aa19_",
+        "peekOfCode": "def downgrade():\n    pass",
+        "detail": "app.migrations.versions.c93a14d1aa19_",
+        "documentation": {}
+    },
+    {
+        "label": "revision",
+        "kind": 5,
+        "importPath": "app.migrations.versions.c93a14d1aa19_",
+        "description": "app.migrations.versions.c93a14d1aa19_",
+        "peekOfCode": "revision = 'c93a14d1aa19'\ndown_revision = None\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    pass\ndef downgrade():\n    pass",
+        "detail": "app.migrations.versions.c93a14d1aa19_",
+        "documentation": {}
+    },
+    {
+        "label": "down_revision",
+        "kind": 5,
+        "importPath": "app.migrations.versions.c93a14d1aa19_",
+        "description": "app.migrations.versions.c93a14d1aa19_",
+        "peekOfCode": "down_revision = None\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    pass\ndef downgrade():\n    pass",
+        "detail": "app.migrations.versions.c93a14d1aa19_",
+        "documentation": {}
+    },
+    {
+        "label": "branch_labels",
+        "kind": 5,
+        "importPath": "app.migrations.versions.c93a14d1aa19_",
+        "description": "app.migrations.versions.c93a14d1aa19_",
+        "peekOfCode": "branch_labels = None\ndepends_on = None\ndef upgrade():\n    pass\ndef downgrade():\n    pass",
+        "detail": "app.migrations.versions.c93a14d1aa19_",
+        "documentation": {}
+    },
+    {
+        "label": "depends_on",
+        "kind": 5,
+        "importPath": "app.migrations.versions.c93a14d1aa19_",
+        "description": "app.migrations.versions.c93a14d1aa19_",
+        "peekOfCode": "depends_on = None\ndef upgrade():\n    pass\ndef downgrade():\n    pass",
+        "detail": "app.migrations.versions.c93a14d1aa19_",
+        "documentation": {}
+    },
+    {
+        "label": "get_engine",
+        "kind": 2,
+        "importPath": "app.migrations.env",
+        "description": "app.migrations.env",
+        "peekOfCode": "def get_engine():\n    try:\n        # this works with Flask-SQLAlchemy<3 and Alchemical\n        return current_app.extensions['migrate'].db.get_engine()\n    except (TypeError, AttributeError):\n        # this works with Flask-SQLAlchemy>=3\n        return current_app.extensions['migrate'].db.engine\ndef get_engine_url():\n    try:\n        return get_engine().url.render_as_string(hide_password=False).replace(",
+        "detail": "app.migrations.env",
+        "documentation": {}
+    },
+    {
+        "label": "get_engine_url",
+        "kind": 2,
+        "importPath": "app.migrations.env",
+        "description": "app.migrations.env",
+        "peekOfCode": "def get_engine_url():\n    try:\n        return get_engine().url.render_as_string(hide_password=False).replace(\n            '%', '%%')\n    except AttributeError:\n        return str(get_engine().url).replace('%', '%%')\n# add your model's MetaData object here\n# for 'autogenerate' support\n# from myapp import mymodel\n# target_metadata = mymodel.Base.metadata",
+        "detail": "app.migrations.env",
+        "documentation": {}
+    },
+    {
+        "label": "get_metadata",
+        "kind": 2,
+        "importPath": "app.migrations.env",
+        "description": "app.migrations.env",
+        "peekOfCode": "def get_metadata():\n    if hasattr(target_db, 'metadatas'):\n        return target_db.metadatas[None]\n    return target_db.metadata\ndef run_migrations_offline():\n    \"\"\"Run migrations in 'offline' mode.\n    This configures the context with just a URL\n    and not an Engine, though an Engine is acceptable\n    here as well.  By skipping the Engine creation\n    we don't even need a DBAPI to be available.",
+        "detail": "app.migrations.env",
+        "documentation": {}
+    },
+    {
+        "label": "run_migrations_offline",
+        "kind": 2,
+        "importPath": "app.migrations.env",
+        "description": "app.migrations.env",
+        "peekOfCode": "def run_migrations_offline():\n    \"\"\"Run migrations in 'offline' mode.\n    This configures the context with just a URL\n    and not an Engine, though an Engine is acceptable\n    here as well.  By skipping the Engine creation\n    we don't even need a DBAPI to be available.\n    Calls to context.execute() here emit the given string to the\n    script output.\n    \"\"\"\n    url = config.get_main_option(\"sqlalchemy.url\")",
+        "detail": "app.migrations.env",
+        "documentation": {}
+    },
+    {
+        "label": "run_migrations_online",
+        "kind": 2,
+        "importPath": "app.migrations.env",
+        "description": "app.migrations.env",
+        "peekOfCode": "def run_migrations_online():\n    \"\"\"Run migrations in 'online' mode.\n    In this scenario we need to create an Engine\n    and associate a connection with the context.\n    \"\"\"\n    # this callback is used to prevent an auto-migration from being generated\n    # when there are no changes to the schema\n    # reference: http://alembic.zzzcomputing.com/en/latest/cookbook.html\n    def process_revision_directives(context, revision, directives):\n        if getattr(config.cmd_opts, 'autogenerate', False):",
+        "detail": "app.migrations.env",
+        "documentation": {}
+    },
+    {
+        "label": "config",
+        "kind": 5,
+        "importPath": "app.migrations.env",
+        "description": "app.migrations.env",
+        "peekOfCode": "config = context.config\n# Interpret the config file for Python logging.\n# This line sets up loggers basically.\nfileConfig(config.config_file_name)\nlogger = logging.getLogger('alembic.env')\ndef get_engine():\n    try:\n        # this works with Flask-SQLAlchemy<3 and Alchemical\n        return current_app.extensions['migrate'].db.get_engine()\n    except (TypeError, AttributeError):",
+        "detail": "app.migrations.env",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "app.migrations.env",
+        "description": "app.migrations.env",
+        "peekOfCode": "logger = logging.getLogger('alembic.env')\ndef get_engine():\n    try:\n        # this works with Flask-SQLAlchemy<3 and Alchemical\n        return current_app.extensions['migrate'].db.get_engine()\n    except (TypeError, AttributeError):\n        # this works with Flask-SQLAlchemy>=3\n        return current_app.extensions['migrate'].db.engine\ndef get_engine_url():\n    try:",
+        "detail": "app.migrations.env",
+        "documentation": {}
+    },
+    {
+        "label": "target_db",
+        "kind": 5,
+        "importPath": "app.migrations.env",
+        "description": "app.migrations.env",
+        "peekOfCode": "target_db = current_app.extensions['migrate'].db\n# other values from the config, defined by the needs of env.py,\n# can be acquired:\n# my_important_option = config.get_main_option(\"my_important_option\")\n# ... etc.\ndef get_metadata():\n    if hasattr(target_db, 'metadatas'):\n        return target_db.metadatas[None]\n    return target_db.metadata\ndef run_migrations_offline():",
+        "detail": "app.migrations.env",
+        "documentation": {}
+    },
+    {
+        "label": "UserRegistrationForm",
+        "kind": 6,
+        "importPath": "app.app",
+        "description": "app.app",
+        "peekOfCode": "class UserRegistrationForm(FlaskForm):\n    username = StringField(\"Username\", validators=[InputRequired(), Length(min=4, max=30)])\n    email = StringField(\"Email\", validators=[InputRequired(), Email(), Length(max=120)])\n    password = PasswordField(\"Password\", validators=[InputRequired(), Length(min=6)])\n    confirm_password = PasswordField(\"ConfirmPassword\", validators=[InputRequired(), EqualTo(\"password\")])\n    submit = SubmitField(\"Sign Up\")\n    def validate_username(self, field):\n        if User.query.filter_by(username=field.data).first():\n            raise ValidationError(\"Username already exists\")\n    def validate_email(self, field):",
+        "detail": "app.app",
+        "documentation": {}
+    },
+    {
+        "label": "LoginForm",
+        "kind": 6,
+        "importPath": "app.app",
+        "description": "app.app",
+        "peekOfCode": "class LoginForm(FlaskForm):\n    email = StringField(\"Email\", validators=[InputRequired(), Email(), Length(max=120)])\n    password = PasswordField(\"Password\", validators=[InputRequired(), Length(6)])\n    remember = BooleanField(\"Remember Me\")\n    submit = SubmitField(\"Login\")\nclass CreateNewReviewForm(FlaskForm):\n    title = StringField(\"Title\", validators=[InputRequired(), Length(min=1, max=100)])\n    body = TextAreaField(\"Body\", validators=[InputRequired(), Length(min=1, max=500)])\n    user_id = IntegerField(\"User ID\", validators=[InputRequired(), NumberRange(min=1)])\n    doghouse_id = IntegerField(\"Dog House ID\", validators=[InputRequired(), NumberRange(min=1)])",
+        "detail": "app.app",
+        "documentation": {}
+    },
+    {
+        "label": "CreateNewReviewForm",
+        "kind": 6,
+        "importPath": "app.app",
+        "description": "app.app",
+        "peekOfCode": "class CreateNewReviewForm(FlaskForm):\n    title = StringField(\"Title\", validators=[InputRequired(), Length(min=1, max=100)])\n    body = TextAreaField(\"Body\", validators=[InputRequired(), Length(min=1, max=500)])\n    user_id = IntegerField(\"User ID\", validators=[InputRequired(), NumberRange(min=1)])\n    doghouse_id = IntegerField(\"Dog House ID\", validators=[InputRequired(), NumberRange(min=1)])\n    status = SelectField(\"Status\", choices=[(\"Booked\", \"Booked\"), (\"Available\", \"Available\"), (\"Draft\", \"Draft\")])\n    submit = SubmitField(\"Create Review\")\nclass UserSchema(ma.Schema):\n    class Meta:\n        model = User",
+        "detail": "app.app",
+        "documentation": {}
+    },
+    {
+        "label": "UserSchema",
+        "kind": 6,
+        "importPath": "app.app",
+        "description": "app.app",
+        "peekOfCode": "class UserSchema(ma.Schema):\n    class Meta:\n        model = User\n        load_instance = True\n        fields = (\"id\", \"username\", \"email\", \"password\")\nuser_schema = UserSchema()\nusers_schema = UserSchema(many=True)\nclass DogHouseSchema(ma.Schema):\n    class Meta:\n        model = DogHouse",
+        "detail": "app.app",
+        "documentation": {}
+    },
+    {
+        "label": "DogHouseSchema",
+        "kind": 6,
+        "importPath": "app.app",
+        "description": "app.app",
+        "peekOfCode": "class DogHouseSchema(ma.Schema):\n    class Meta:\n        model = DogHouse\n        load_instance = True\n        # Fields to expose\n        fields = (\n            \"id\",\n            \"name\",\n            \"location\",\n            \"description\",",
+        "detail": "app.app",
+        "documentation": {}
+    },
+    {
+        "label": "ReviewSchema",
+        "kind": 6,
+        "importPath": "app.app",
+        "description": "app.app",
+        "peekOfCode": "class ReviewSchema(ma.Schema):\n    class Meta:\n        load_instance = True\n        # Fields to expose\n        fields = (\"id\", \"title\", \"body\", \"user_id\", \"doghouse_id\", \"status\")\nreview_schema = ReviewSchema()\nreviews_schema = ReviewSchema(many=True)\n# RESTFUL API Endpoints\napi = Api(app)\nclass Index(Resource):",
+        "detail": "app.app",
+        "documentation": {}
+    },
+    {
+        "label": "Index",
+        "kind": 6,
+        "importPath": "app.app",
+        "description": "app.app",
+        "peekOfCode": "class Index(Resource):\n    def get(self):\n        response_dict = {\n            \"index\": \"Welcome to the Newsletter RESTful API\",\n        }\n        response = make_response(jsonify(response_dict), 200)\n        return response\n# Route Home\n@app.route(\"/\")\ndef home():",
+        "detail": "app.app",
+        "documentation": {}
+    },
+    {
+        "label": "home",
+        "kind": 2,
+        "importPath": "app.app",
+        "description": "app.app",
+        "peekOfCode": "def home():\n    response_dict = {\n        \"index\": \"Welcome to the Newsletter RESTful API\",\n    }\n    response = make_response(jsonify(response_dict), 200)\n    return response\n# User ROUTES\n# -----------------------------------------------------------------------------------------#\n# Route GET users\n@app.route(\"/users\", methods=[\"GET\"])",
+        "detail": "app.app",
+        "documentation": {}
+    },
+    {
+        "label": "get_user",
+        "kind": 2,
+        "importPath": "app.app",
+        "description": "app.app",
+        "peekOfCode": "def get_user():\n    users = [user.to_dict() for user in User.query.all()]\n    result = users_schema.dump(users)\n    return jsonify(result), 200\n# Route to GET, PATCH, DELETE a user by ID\n@app.route(\"/users/<int:user_id>\", methods=[\"GET\", \"PATCH\"])\ndef get_user_by_id(user_id):\n    user = User.query.filter_by(id=user_id).first()\n    if user is None:  # Does not exist\n        return jsonify({\"message\": \"User not found\"}), 404",
+        "detail": "app.app",
+        "documentation": {}
+    },
+    {
+        "label": "get_user_by_id",
+        "kind": 2,
+        "importPath": "app.app",
+        "description": "app.app",
+        "peekOfCode": "def get_user_by_id(user_id):\n    user = User.query.filter_by(id=user_id).first()\n    if user is None:  # Does not exist\n        return jsonify({\"message\": \"User not found\"}), 404\n    else:\n        if request.method == \"GET\":\n            result = user_schema.dump(user)\n            response = make_response(jsonify(result), 200)\n            return response\n        elif request.method == \"PATCH\":",
+        "detail": "app.app",
+        "documentation": {}
+    },
+    {
+        "label": "create_user",
+        "kind": 2,
+        "importPath": "app.app",
+        "description": "app.app",
+        "peekOfCode": "def create_user():\n    data = request.json()\n    errors = user_schema.validate(data)\n    if errors:\n        return jsonify(errors), 400\n    new_user = User(**data)\n    db.session.add(new_user)\n    db.session.commit()\n    result = user_schema.dump(new_user)\n    return jsonify(result), 201",
+        "detail": "app.app",
+        "documentation": {}
+    },
+    {
+        "label": "get_doghouses",
+        "kind": 2,
+        "importPath": "app.app",
+        "description": "app.app",
+        "peekOfCode": "def get_doghouses():\n    doghouses = [house.to_dict() for house in DogHouse.query.all()]\n    result = doghouses_schema.dump(doghouses)\n    return jsonify(result), 200\n# Route to GET, PATCH, DELETE a DogHouse\n@app.route(\"/doghouses/<int:doghouse_id>\", methods=[\"GET\", \"PATCH\", \"DELETE\"])\ndef get_doghouse_by_id(doghouse_id):\n    doghouse = DogHouse.query.filter_by(id=doghouse_id).first()\n    if doghouse is None:\n        return jsonify({\"message\": \"Dog house not found\"}), 404",
+        "detail": "app.app",
+        "documentation": {}
+    },
+    {
+        "label": "get_doghouse_by_id",
+        "kind": 2,
+        "importPath": "app.app",
+        "description": "app.app",
+        "peekOfCode": "def get_doghouse_by_id(doghouse_id):\n    doghouse = DogHouse.query.filter_by(id=doghouse_id).first()\n    if doghouse is None:\n        return jsonify({\"message\": \"Dog house not found\"}), 404\n    # GET\n    if request.method == \"GET\":\n        result = doghouse_schema.dump(doghouse)\n        return jsonify(result), 200\n    # PATCH\n    elif request.method == \"PATCH\":",
+        "detail": "app.app",
+        "documentation": {}
+    },
+    {
+        "label": "create_dog_house_listing",
+        "kind": 2,
+        "importPath": "app.app",
+        "description": "app.app",
+        "peekOfCode": "def create_dog_house_listing():\n    data = request.json\n    # Serialize the amenities list to a string\n    amenities = data.get(\"amenities\")\n    if amenities:\n        data[\"amenities\"] = \",\".join(amenities)\n    errors = doghouse_schema.validate(data)\n    if errors:\n        return jsonify(errors), 400\n    # Create a new DogHouse object and save it to the database",
+        "detail": "app.app",
+        "documentation": {}
+    },
+    {
+        "label": "get_reviews",
+        "kind": 2,
+        "importPath": "app.app",
+        "description": "app.app",
+        "peekOfCode": "def get_reviews():\n    reviews = [review.to_dict() for review in Review.query.all()]\n    result = reviews_schema.dump(reviews)\n    return jsonify(result), 200\n# Route to create a new review\n@app.route(\"/reviews\", methods=[\"POST\"])\ndef create_review():\n    data = request.json\n    errors = review_schema.validate(data)\n    if errors:",
+        "detail": "app.app",
+        "documentation": {}
+    },
+    {
+        "label": "create_review",
+        "kind": 2,
+        "importPath": "app.app",
+        "description": "app.app",
+        "peekOfCode": "def create_review():\n    data = request.json\n    errors = review_schema.validate(data)\n    if errors:\n        return jsonify(errors), 400\n    new_review = Review(**data)\n    db.session.add(new_review)\n    db.session.commit()\n    result = review_schema.dump(new_review)\n    return jsonify(result), 201",
+        "detail": "app.app",
+        "documentation": {}
+    },
+    {
+        "label": "get_review_by_id",
+        "kind": 2,
+        "importPath": "app.app",
+        "description": "app.app",
+        "peekOfCode": "def get_review_by_id(review_id):\n    review = Review.query.filter_by(id=review_id).first()\n    if review is None:\n        return jsonify({\"message\": \"Review not found\"}), 404\n    result = review_schema.dump(review)\n    return jsonify(result), 200\n# Route to update a review by ID\n@app.route(\"/reviews/<int:review_id>\", methods=[\"PUT\"])\ndef update_review_by_id(review_id):\n    data = request.json",
+        "detail": "app.app",
+        "documentation": {}
+    },
+    {
+        "label": "update_review_by_id",
+        "kind": 2,
+        "importPath": "app.app",
+        "description": "app.app",
+        "peekOfCode": "def update_review_by_id(review_id):\n    data = request.json\n    review = Review.query.filter_by(id=review_id).first()\n    if review is None:\n        return jsonify({\"message\": \"Review not found\"}), 404\n    for key, value in data.items():\n        setattr(review, key, value)\n    db.session.commit()\n    result = review_schema.dump(review)\n    return jsonify(result), 200",
+        "detail": "app.app",
+        "documentation": {}
+    },
+    {
+        "label": "delete_review_by_id",
+        "kind": 2,
+        "importPath": "app.app",
+        "description": "app.app",
+        "peekOfCode": "def delete_review_by_id(review_id):\n    review = Review.query.filter_by(id=review_id).first()\n    if review is None:\n        return jsonify({\"message\": \"Review not found\"}), 404\n    db.session.delete(review)\n    db.session.commit()\n    return jsonify({\"message\": \"Review deleted\"}), 204\nif __name__ == \"__main__\":\n    app.run(debug=True, port=5555)",
+        "detail": "app.app",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "app.app",
+        "description": "app.app",
+        "peekOfCode": "app = Flask(__name__)\nma = Marshmallow(app)\napi = Api(app)\n# app.config[\"SECRET_KEY\"] = \"your_secret_key_here\"\napp.config[\"SQLALCHEMY_DATABASE_URI\"] = os.environ.get(\"DATABASE_URL\")\napp.config[\"SQLALCHEMY_TRACK_MODIFICATIONS\"] = False\napp.config[\"JSONIFY_PRETTYPRINT_REGULAR\"] = True\ncors = CORS(app)\nmigrate = Migrate(app, db)\ndb.init_app(app)",
+        "detail": "app.app",
+        "documentation": {}
+    },
+    {
+        "label": "ma",
+        "kind": 5,
+        "importPath": "app.app",
+        "description": "app.app",
+        "peekOfCode": "ma = Marshmallow(app)\napi = Api(app)\n# app.config[\"SECRET_KEY\"] = \"your_secret_key_here\"\napp.config[\"SQLALCHEMY_DATABASE_URI\"] = os.environ.get(\"DATABASE_URL\")\napp.config[\"SQLALCHEMY_TRACK_MODIFICATIONS\"] = False\napp.config[\"JSONIFY_PRETTYPRINT_REGULAR\"] = True\ncors = CORS(app)\nmigrate = Migrate(app, db)\ndb.init_app(app)\n# # Cloudinary configuration",
+        "detail": "app.app",
+        "documentation": {}
+    },
+    {
+        "label": "api",
+        "kind": 5,
+        "importPath": "app.app",
+        "description": "app.app",
+        "peekOfCode": "api = Api(app)\n# app.config[\"SECRET_KEY\"] = \"your_secret_key_here\"\napp.config[\"SQLALCHEMY_DATABASE_URI\"] = os.environ.get(\"DATABASE_URL\")\napp.config[\"SQLALCHEMY_TRACK_MODIFICATIONS\"] = False\napp.config[\"JSONIFY_PRETTYPRINT_REGULAR\"] = True\ncors = CORS(app)\nmigrate = Migrate(app, db)\ndb.init_app(app)\n# # Cloudinary configuration\ncloudinary.config(",
+        "detail": "app.app",
+        "documentation": {}
+    },
+    {
+        "label": "app.config[\"SQLALCHEMY_DATABASE_URI\"]",
+        "kind": 5,
+        "importPath": "app.app",
+        "description": "app.app",
+        "peekOfCode": "app.config[\"SQLALCHEMY_DATABASE_URI\"] = os.environ.get(\"DATABASE_URL\")\napp.config[\"SQLALCHEMY_TRACK_MODIFICATIONS\"] = False\napp.config[\"JSONIFY_PRETTYPRINT_REGULAR\"] = True\ncors = CORS(app)\nmigrate = Migrate(app, db)\ndb.init_app(app)\n# # Cloudinary configuration\ncloudinary.config(\n    cloud_name=os.environ.get(\"CLOUDINARY_CLOUD_NAME\"),\n    api_key=os.environ.get(\"CLOUDINARY_API_KEY\"),",
+        "detail": "app.app",
+        "documentation": {}
+    },
+    {
+        "label": "app.config[\"SQLALCHEMY_TRACK_MODIFICATIONS\"]",
+        "kind": 5,
+        "importPath": "app.app",
+        "description": "app.app",
+        "peekOfCode": "app.config[\"SQLALCHEMY_TRACK_MODIFICATIONS\"] = False\napp.config[\"JSONIFY_PRETTYPRINT_REGULAR\"] = True\ncors = CORS(app)\nmigrate = Migrate(app, db)\ndb.init_app(app)\n# # Cloudinary configuration\ncloudinary.config(\n    cloud_name=os.environ.get(\"CLOUDINARY_CLOUD_NAME\"),\n    api_key=os.environ.get(\"CLOUDINARY_API_KEY\"),\n    api_secret=os.environ.get(\"CLOUDINARY_API_SECRET\"),",
+        "detail": "app.app",
+        "documentation": {}
+    },
+    {
+        "label": "app.config[\"JSONIFY_PRETTYPRINT_REGULAR\"]",
+        "kind": 5,
+        "importPath": "app.app",
+        "description": "app.app",
+        "peekOfCode": "app.config[\"JSONIFY_PRETTYPRINT_REGULAR\"] = True\ncors = CORS(app)\nmigrate = Migrate(app, db)\ndb.init_app(app)\n# # Cloudinary configuration\ncloudinary.config(\n    cloud_name=os.environ.get(\"CLOUDINARY_CLOUD_NAME\"),\n    api_key=os.environ.get(\"CLOUDINARY_API_KEY\"),\n    api_secret=os.environ.get(\"CLOUDINARY_API_SECRET\"),\n)",
+        "detail": "app.app",
+        "documentation": {}
+    },
+    {
+        "label": "cors",
+        "kind": 5,
+        "importPath": "app.app",
+        "description": "app.app",
+        "peekOfCode": "cors = CORS(app)\nmigrate = Migrate(app, db)\ndb.init_app(app)\n# # Cloudinary configuration\ncloudinary.config(\n    cloud_name=os.environ.get(\"CLOUDINARY_CLOUD_NAME\"),\n    api_key=os.environ.get(\"CLOUDINARY_API_KEY\"),\n    api_secret=os.environ.get(\"CLOUDINARY_API_SECRET\"),\n)\n# ----------------------------------------Forms for Input Validation---------------------------------------------------#",
+        "detail": "app.app",
+        "documentation": {}
+    },
+    {
+        "label": "migrate",
+        "kind": 5,
+        "importPath": "app.app",
+        "description": "app.app",
+        "peekOfCode": "migrate = Migrate(app, db)\ndb.init_app(app)\n# # Cloudinary configuration\ncloudinary.config(\n    cloud_name=os.environ.get(\"CLOUDINARY_CLOUD_NAME\"),\n    api_key=os.environ.get(\"CLOUDINARY_API_KEY\"),\n    api_secret=os.environ.get(\"CLOUDINARY_API_SECRET\"),\n)\n# ----------------------------------------Forms for Input Validation---------------------------------------------------#\n# Forms for Input Validation",
+        "detail": "app.app",
+        "documentation": {}
+    },
+    {
+        "label": "user_schema",
+        "kind": 5,
+        "importPath": "app.app",
+        "description": "app.app",
+        "peekOfCode": "user_schema = UserSchema()\nusers_schema = UserSchema(many=True)\nclass DogHouseSchema(ma.Schema):\n    class Meta:\n        model = DogHouse\n        load_instance = True\n        # Fields to expose\n        fields = (\n            \"id\",\n            \"name\",",
+        "detail": "app.app",
+        "documentation": {}
+    },
+    {
+        "label": "users_schema",
+        "kind": 5,
+        "importPath": "app.app",
+        "description": "app.app",
+        "peekOfCode": "users_schema = UserSchema(many=True)\nclass DogHouseSchema(ma.Schema):\n    class Meta:\n        model = DogHouse\n        load_instance = True\n        # Fields to expose\n        fields = (\n            \"id\",\n            \"name\",\n            \"location\",",
+        "detail": "app.app",
+        "documentation": {}
+    },
+    {
+        "label": "doghouse_schema",
+        "kind": 5,
+        "importPath": "app.app",
+        "description": "app.app",
+        "peekOfCode": "doghouse_schema = DogHouseSchema()\ndoghouses_schema = DogHouseSchema(many=True)\nclass ReviewSchema(ma.Schema):\n    class Meta:\n        load_instance = True\n        # Fields to expose\n        fields = (\"id\", \"title\", \"body\", \"user_id\", \"doghouse_id\", \"status\")\nreview_schema = ReviewSchema()\nreviews_schema = ReviewSchema(many=True)\n# RESTFUL API Endpoints",
+        "detail": "app.app",
+        "documentation": {}
+    },
+    {
+        "label": "doghouses_schema",
+        "kind": 5,
+        "importPath": "app.app",
+        "description": "app.app",
+        "peekOfCode": "doghouses_schema = DogHouseSchema(many=True)\nclass ReviewSchema(ma.Schema):\n    class Meta:\n        load_instance = True\n        # Fields to expose\n        fields = (\"id\", \"title\", \"body\", \"user_id\", \"doghouse_id\", \"status\")\nreview_schema = ReviewSchema()\nreviews_schema = ReviewSchema(many=True)\n# RESTFUL API Endpoints\napi = Api(app)",
+        "detail": "app.app",
+        "documentation": {}
+    },
+    {
+        "label": "review_schema",
+        "kind": 5,
+        "importPath": "app.app",
+        "description": "app.app",
+        "peekOfCode": "review_schema = ReviewSchema()\nreviews_schema = ReviewSchema(many=True)\n# RESTFUL API Endpoints\napi = Api(app)\nclass Index(Resource):\n    def get(self):\n        response_dict = {\n            \"index\": \"Welcome to the Newsletter RESTful API\",\n        }\n        response = make_response(jsonify(response_dict), 200)",
+        "detail": "app.app",
+        "documentation": {}
+    },
+    {
+        "label": "reviews_schema",
+        "kind": 5,
+        "importPath": "app.app",
+        "description": "app.app",
+        "peekOfCode": "reviews_schema = ReviewSchema(many=True)\n# RESTFUL API Endpoints\napi = Api(app)\nclass Index(Resource):\n    def get(self):\n        response_dict = {\n            \"index\": \"Welcome to the Newsletter RESTful API\",\n        }\n        response = make_response(jsonify(response_dict), 200)\n        return response",
+        "detail": "app.app",
+        "documentation": {}
+    },
+    {
+        "label": "api",
+        "kind": 5,
+        "importPath": "app.app",
+        "description": "app.app",
+        "peekOfCode": "api = Api(app)\nclass Index(Resource):\n    def get(self):\n        response_dict = {\n            \"index\": \"Welcome to the Newsletter RESTful API\",\n        }\n        response = make_response(jsonify(response_dict), 200)\n        return response\n# Route Home\n@app.route(\"/\")",
+        "detail": "app.app",
+        "documentation": {}
+    },
+    {
+        "label": "Review",
+        "kind": 6,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "class Review(db.Model, SerializerMixin):\n    __tablename__ = \"reviews\"\n    id = db.Column(db.Integer(), primary_key=True)\n    title = db.Column(db.String(100))\n    body = db.Column(db.String(500))\n    rating = db.Column(db.Integer())\n    user_id = db.Column(db.Integer(), ForeignKey(\"users.id\"))\n    doghouse_id = db.Column(db.Integer(), ForeignKey(column=\"doghouses.id\"))\n    status = db.Column(db.String(150))\n    created_at = db.Column(db.DateTime, default=db.func.current_timestamp())",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "kind": 6,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "class User(db.Model, SerializerMixin):\n    __tablename__ = \"users\"\n    serialize_rules = \"-reviews.user\"\n    id = db.Column(db.Integer(), primary_key=True)\n    username = db.Column(db.String(250), nullable=False)\n    email = db.Column(db.String(120), unique=True, nullable=False)\n    password = db.Column(db.String(), nullable=False)\n    created_at = db.Column(db.DateTime, default=db.func.current_timestamp())\n    updated_at = db.Column(db.DateTime, default=db.func.current_timestamp(), onupdate=db.func.current_timestamp())\n    # one-to-many Relationship between Users and Reviews",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "DogHouse",
+        "kind": 6,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "class DogHouse(db.Model, SerializerMixin):\n    __tablename__ = \"doghouses\"\n    serialize_rules = \"-reviews.doghouse\"\n    id = db.Column(db.Integer(), primary_key=True)\n    name = db.Column(db.String(200))\n    location = db.Column(db.String())\n    description = db.Column(db.String(500))\n    price_per_night = db.Column(db.Float())\n    image_url = db.Column(db.String())\n    amenities = db.Column(db.String())",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "kind": 5,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "db = SQLAlchemy()\n# Reviews Model\nclass Review(db.Model, SerializerMixin):\n    __tablename__ = \"reviews\"\n    id = db.Column(db.Integer(), primary_key=True)\n    title = db.Column(db.String(100))\n    body = db.Column(db.String(500))\n    rating = db.Column(db.Integer())\n    user_id = db.Column(db.Integer(), ForeignKey(\"users.id\"))\n    doghouse_id = db.Column(db.Integer(), ForeignKey(column=\"doghouses.id\"))",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "fake",
+        "kind": 5,
+        "importPath": "app.seed",
+        "description": "app.seed",
+        "peekOfCode": "fake = Faker()\n# Create a Flask application context\nwith app.app_context():\n    # Delete existing records in the tables\n    User.query.delete()\n    DogHouse.query.delete()\n    Review.query.delete()\n    # Create fake users\n    users = []\n    for _ in range(10):",
+        "detail": "app.seed",
+        "documentation": {}
+    }
+]
