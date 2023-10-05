@@ -11,7 +11,6 @@ from models import db, DogHouse, User, Review
 from flask_cors import CORS
 from flask_marshmallow import Marshmallow
 from werkzeug.security import check_password_hash
-from flask_bcrypt import bcrypt
 
 # --------------------------------------------------------#
 from flask_wtf import FlaskForm
@@ -61,7 +60,6 @@ ma = Marshmallow(app)
 api = Api(app)
 
 logger = logging.getLogger(__name__)
-bcrypt = Bcrypt(app)
 
 login_manager = LoginManager()
 login_manager.login_view = "login"
@@ -218,7 +216,7 @@ def jwt_login():
     if user:
         stored_password = (
             user.password
-        )  # Retrieve the hashed password from the database
+        )  # Retrieving the hashed password from the database
 
         if check_password_hash(stored_password, password):
             # Successful login, generate an access token
