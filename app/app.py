@@ -210,21 +210,13 @@ def jwt_login():
     email = data.get("email")
     password = data.get("password")
 
-    print(f"Received email: {email}, password: {password}")
-
     if not email or not password:
         return jsonify({"message": "Email and password are required"}), 400
 
     user = User.query.filter_by(email=email).first()
 
     if user:
-        stored_password = (
-            user.password
-        )  # Retrieving the hashed password from the database
-
-        print(f"Stored hashed password: {stored_password}")
-
-        if bcrypt.check_password_hash(stored_password, password):
+        if bcrypt.check_password_hash(user.password, password):
             # Successful login, generate an access token
             access_token = create_access_token(identity=user.id)
             return jsonify({"access_token": access_token}), 200
@@ -273,11 +265,12 @@ def signup():
     # Hashing the password before saving it
     hashed_password = bcrypt.generate_password_hash(password).decode("utf-8")
 
-    # Create a new user
+    # Create a new user with the hashed password
     new_user = User(username=username, email=email, password=hashed_password)
 
     db.session.add(new_user)
     db.session.commit()
+
     return jsonify({"message": "User registered successfully"}), 201
 
 
