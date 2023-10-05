@@ -807,7 +807,7 @@
         "kind": 2,
         "importPath": "app.app",
         "description": "app.app",
-        "peekOfCode": "def login():\n    data = request.json\n    email = data.get(\"email\")\n    password = data.get(\"password\")\n    user = User.query.filter_by(email=email).first()\n    if user:\n        if bcrypt.check_password_hash(user.password, password):\n            # Successful login\n            return jsonify({\"message\": \"Login successful\"}), 200\n        else:",
+        "peekOfCode": "def login():\n    data = request.json\n    email = data.get(\"email\")\n    password = data.get(\"password\")\n    user = User.query.filter_by(email=email).first()\n    if user and bcrypt.check_password_hash(user.password, password):\n        # Successful login\n        return jsonify({\"message\": \"Login successful\"}), 200\n    else:\n        # Invalid credentials",
         "detail": "app.app",
         "documentation": {}
     },

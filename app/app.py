@@ -199,16 +199,12 @@ def login():
 
     user = User.query.filter_by(email=email).first()
 
-    if user:
-        if bcrypt.check_password_hash(user.password, password):
-            # Successful login
-            return jsonify({"message": "Login successful"}), 200
-        else:
-            # Invalid password
-            return jsonify({"message": "Invalid password"}), 401
+    if user and bcrypt.check_password_hash(user.password, password):
+        # Successful login
+        return jsonify({"message": "Login successful"}), 200
     else:
-        # User not found
-        return jsonify({"message": "User not found"}), 401
+        # Invalid credentials
+        return jsonify({"message": "Invalid login credentials"}), 401
 
 
 # Users will be redirected to the login page if they haven't logged in
@@ -241,6 +237,7 @@ def signup():
             email=form.email.data,
             password=bcrypt.generate_password_hash(form.password.data).decode("utf-8"),
         )
+
         db.session.add(new_user)
         db.session.commit()
 
