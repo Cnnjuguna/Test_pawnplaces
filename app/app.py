@@ -216,15 +216,18 @@ def jwt_login():
     if user:
         stored_password = (
             user.password
-        )  # Retrieve the hashed password from the database
+        )  # Retrieving the hashed password from the database
 
         if check_password_hash(stored_password, password):
             # Successful login, generate an access token
             access_token = create_access_token(identity=user.id)
             return jsonify({"access_token": access_token}), 200
-
-    # Invalid credentials
-    return jsonify({"message": "Invalid login credentials"}), 401
+        else:
+            # Invalid password
+            return jsonify({"message": "Invalid login credentials"}), 401
+    else:
+        # User with provided email not found
+        return jsonify({"message": "Invalid login credentials"}), 401
 
 
 # Protected route
