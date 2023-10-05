@@ -1,11 +1,11 @@
 from app import (
     app,
     db,
-)  # Replace 'your_flask_app' with the actual name of your Flask app
+)
 from flask_bcrypt import Bcrypt
-from models import User  # Import your User model
+from models import User
 
-bcrypt = Bcrypt(app)  # Initialize bcrypt
+bcrypt = Bcrypt(app)  # Initializing bcrypt
 
 # Iterate through existing users and update password hashes
 with app.app_context():
