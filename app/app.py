@@ -204,6 +204,9 @@ def home():
 
 
 # -----------------------------Routes for Login and Logout------------------------------#
+from flask_bcrypt import check_password_hash
+
+
 @app.route("/jwt-login", methods=["POST"])
 def jwt_login():
     data = request.json
@@ -216,7 +219,12 @@ def jwt_login():
     user = User.query.filter_by(email=email).first()
 
     if user:
-        if bcrypt.check_password_hash(user.password, password):
+        stored_password_hash = (
+            user.password
+        )  # Retrieving the hashed password from the database
+
+        # Comparing the hashed login password with the stored password hash
+        if check_password_hash(stored_password_hash, password):
             # Successful login, generate an access token
             access_token = create_access_token(identity=user.id)
             return jsonify({"access_token": access_token}), 200
