@@ -322,7 +322,7 @@ def get_user_by_id(user_id):
 # Route to POST create a user
 @app.route("/users", methods=["POST"])
 def create_user():
-    data = request.json()
+    data = request.json
     errors = user_schema.validate(data)
 
     if errors:
