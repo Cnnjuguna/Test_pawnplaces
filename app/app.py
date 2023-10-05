@@ -262,8 +262,8 @@ def signup():
     email = data.get("email")
     password = data.get("password")
 
-    # Hashing the password before saving it
-    hashed_password = bcrypt.generate_password_hash(data["password"]).decode("utf-8")
+    # Hash the password using bcrypt
+    hashed_password = bcrypt.generate_password_hash(password).decode("utf-8")
 
     # Create a new user with the hashed password
     new_user = User(username=username, email=email, password=hashed_password)
@@ -317,7 +317,6 @@ def get_user_by_id(user_id):
 
 
 # Route to POST create a user
-@app.route("/users", methods=["POST"])
 def create_user():
     data = request.json
     errors = user_schema.validate(data)
@@ -326,7 +325,7 @@ def create_user():
         return jsonify(errors), 400
 
     # Hash the password using bcrypt
-    hashed_password = bcrypt.hashpw(data["password"].encode("utf-8"), bcrypt.gensalt())
+    hashed_password = bcrypt.generate_password_hash(data["password"]).decode("utf-8")
 
     # Create a new user with the hashed password
     new_user = User(
