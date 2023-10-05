@@ -208,6 +208,8 @@ def jwt_login():
     email = data.get("email")
     password = data.get("password")
 
+    print(f"Received email: {email}, password: {password}")
+
     if not email or not password:
         return jsonify({"message": "Email and password are required"}), 400
 
