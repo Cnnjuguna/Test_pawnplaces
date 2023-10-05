@@ -199,7 +199,9 @@ def login():
 
     user = User.query.filter_by(email=email).first()
 
-    if user and bcrypt.check_password_hash(user.password, password):
+    if user and bcrypt.check_password_hash(
+        user.password, password
+    ):  # Compare hashes directly
         # Successful login
         return jsonify({"message": "Login successful"}), 200
     else:
