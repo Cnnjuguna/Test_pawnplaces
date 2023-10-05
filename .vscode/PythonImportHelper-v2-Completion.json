@@ -1088,7 +1088,7 @@
         "kind": 5,
         "importPath": "app.seed",
         "description": "app.seed",
-        "peekOfCode": "fake = Faker()\n# Create a Flask application context\nwith app.app_context():\n    # Delete existing records in the tables\n    User.query.delete()\n    DogHouse.query.delete()\n    Review.query.delete()\n    # Create fake users\n    users = []\n    for _ in range(10):",
+        "peekOfCode": "fake = Faker()\n# Create a Flask application context\nwith app.app_context():\n    # Delete existing records in the tables\n    Review.query.delete()\n    User.query.delete()\n    DogHouse.query.delete()\n    # Create fake users\n    users = []\n    for _ in range(10):",
         "detail": "app.seed",
         "documentation": {}
     }

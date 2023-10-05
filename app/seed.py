@@ -9,9 +9,9 @@ fake = Faker()
 # Create a Flask application context
 with app.app_context():
     # Delete existing records in the tables
+    Review.query.delete()
     User.query.delete()
     DogHouse.query.delete()
-    Review.query.delete()
 
     # Create fake users
     users = []
