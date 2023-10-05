@@ -53,10 +53,12 @@ from cloudinary.uploader import upload
 from cloudinary.utils import cloudinary_url
 import cloudinary.api
 import os
+from flask_bcrypt import Bcrypt
 
 
 app = Flask(__name__)
 api = Api(app)
+bcrypt = Bcrypt(app)
 
 logger = logging.getLogger(__name__)
 
@@ -220,7 +222,9 @@ def jwt_login():
             user.password
         )  # Retrieving the hashed password from the database
 
-        if check_password_hash(stored_password, password):
+        print(f"Stored hashed password: {stored_password}")
+
+        if bcrypt.check_password_hash(stored_password, password):
             # Successful login, generate an access token
             access_token = create_access_token(identity=user.id)
             return jsonify({"access_token": access_token}), 200
@@ -288,7 +292,7 @@ def get_user():
 
 
 # Route to GET, PATCH, DELETE a user by ID
-@app.route("/users/<int:user_id>", methods=["GET", "PATCH"])
+@app.route("/users/<int:user_id>", methods=["GET", "PATCH", "DELETE"])
 def get_user_by_id(user_id):
     user = User.query.filter_by(id=user_id).first()
     if user is None:  # Does not exist
@@ -328,7 +332,14 @@ def create_user():
     if errors:
         return jsonify(errors), 400
 
-    new_user = User(**data)
+    # Hash the password using bcrypt
+    hashed_password = bcrypt.hashpw(data["password"].encode("utf-8"), bcrypt.gensalt())
+
+    # Create a new user with the hashed password
+    new_user = User(
+        username=data["username"], email=data["email"], password=hashed_password
+    )
+
     db.session.add(new_user)
     db.session.commit()
 
