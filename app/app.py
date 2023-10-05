@@ -263,7 +263,7 @@ def signup():
     password = data.get("password")
 
     # Hashing the password before saving it
-    hashed_password = bcrypt.generate_password_hash(password).decode("utf-8")
+    hashed_password = bcrypt.generate_password_hash(data["password"]).decode("utf-8")
 
     # Create a new user with the hashed password
     new_user = User(username=username, email=email, password=hashed_password)
