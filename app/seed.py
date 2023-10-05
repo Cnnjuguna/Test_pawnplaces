@@ -3,8 +3,7 @@ from models import User, DogHouse, Review
 from faker import Faker
 import random
 import datetime
-from werkzeug.security import generate_password_hash
-
+from hashlib import sha256
 
 image_urls = [
     "https://dummyimage.com/889x613",
@@ -39,11 +38,10 @@ with app.app_context():
         users.append(user)
 
         # Hashing the password before storing it
-        hashed_password = generate_password_hash(password, method="bcrypt")
+        hashed_password = sha256(password.encode("utf-8")).hexdigest()
 
         user = User(username=username, email=email, password=hashed_password)
         users.append(user)
-
     # Create fake dog houses
     dog_houses = []
     for i in range(10):
