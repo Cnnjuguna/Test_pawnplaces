@@ -13,15 +13,31 @@ from flask_marshmallow import Marshmallow
 
 # --------------------------------------------------------#
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField, BooleanField, TextAreaField, SelectField, IntegerField
-from wtforms.validators import InputRequired, Length, Email, EqualTo, ValidationError, NumberRange
+from wtforms import (
+    StringField,
+    PasswordField,
+    SubmitField,
+    BooleanField,
+    TextAreaField,
+    SelectField,
+    IntegerField,
+)
+from wtforms.validators import (
+    InputRequired,
+    Length,
+    Email,
+    EqualTo,
+    ValidationError,
+    NumberRange,
+)
 
 # from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 
 # ---------------------------------------------------------#
 
 import cloudinary
-import cloudinary.uploader
+from cloudinary.uploader import upload
+from cloudinary.utils import cloudinary_url
 import cloudinary.api
 import os
 
@@ -51,10 +67,14 @@ cloudinary.config(
 # ----------------------------------------Forms for Input Validation---------------------------------------------------#
 # Forms for Input Validation
 class UserRegistrationForm(FlaskForm):
-    username = StringField("Username", validators=[InputRequired(), Length(min=4, max=30)])
+    username = StringField(
+        "Username", validators=[InputRequired(), Length(min=4, max=30)]
+    )
     email = StringField("Email", validators=[InputRequired(), Email(), Length(max=120)])
     password = PasswordField("Password", validators=[InputRequired(), Length(min=6)])
-    confirm_password = PasswordField("ConfirmPassword", validators=[InputRequired(), EqualTo("password")])
+    confirm_password = PasswordField(
+        "ConfirmPassword", validators=[InputRequired(), EqualTo("password")]
+    )
     submit = SubmitField("Sign Up")
 
     def validate_username(self, field):
@@ -77,8 +97,13 @@ class CreateNewReviewForm(FlaskForm):
     title = StringField("Title", validators=[InputRequired(), Length(min=1, max=100)])
     body = TextAreaField("Body", validators=[InputRequired(), Length(min=1, max=500)])
     user_id = IntegerField("User ID", validators=[InputRequired(), NumberRange(min=1)])
-    doghouse_id = IntegerField("Dog House ID", validators=[InputRequired(), NumberRange(min=1)])
-    status = SelectField("Status", choices=[("Booked", "Booked"), ("Available", "Available"), ("Draft", "Draft")])
+    doghouse_id = IntegerField(
+        "Dog House ID", validators=[InputRequired(), NumberRange(min=1)]
+    )
+    status = SelectField(
+        "Status",
+        choices=[("Booked", "Booked"), ("Available", "Available"), ("Draft", "Draft")],
+    )
     submit = SubmitField("Create Review")
 
 
@@ -262,6 +287,13 @@ def create_dog_house_listing():
     if amenities:
         data["amenities"] = ",".join(amenities)
 
+    # Handling image uploads to Cloudinary
+    image = request.files.get("image")
+    if image:
+        result = upload(image)
+        image_url = result["secure_url"]  # Getting the Cloudinary URL
+        data["image_url"] = image_url
+
     errors = doghouse_schema.validate(data)
     if errors:
         return jsonify(errors), 400
@@ -275,31 +307,12 @@ def create_dog_house_listing():
     return jsonify(result), 201
 
 
-# Route to create (POST) a DogHouse
-# @app.route("/doghouses", methods=["POST"])
-# def create_dog_house():
-#     data = request.json
-#     errors = doghouses_schema.validate(data)
-#     if errors:
-#         return jsonify(errors), 400
-
-#     # Handling image uploads to Cloudinary
-#     image = request.files.get("image")
-#     if image:
-#         result = upload(image)
-#         image_url = result["secure_url"]  # Getting the Cloudinary URL
-
-#         # Adding the image URL to the data before creating the DogHouse
-#         data["image_url"] = image_url
-
-#     # Creating a new dog house and save it to the dB
-#     new_dog_house = DogHouse(**data)
-#     db.session.add(new_dog_house)
-#     db.session.commit()
-
-#     # Serialize the newly created dog house and return it
-#     result = doghouses_schema.dump(new_dog_house)
-#     return jsonify(result), 201
+# Route for Fetching Reviews by Doghouse ID
+@app.route("/doghouses/<int:doghouse_id>/reviews", methods=["GET"])
+def get_reviews_by_doghouse_id(doghouse_id):
+    reviews = Review.query.filter_by(doghouse_id=doghouse_id).all()
+    result = reviews_schema.dump(reviews)
+    return jsonify(result), 200
 
 
 # Reviews ROUTES
