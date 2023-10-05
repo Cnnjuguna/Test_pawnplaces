@@ -3,6 +3,22 @@ from models import User, DogHouse, Review
 from faker import Faker
 import random
 import datetime
+from werkzeug.security import generate_password_hash
+
+
+image_urls = [
+    "https://dummyimage.com/889x613",
+    "https://placekitten.com/944/371",
+    "https://placekitten.com/950/447",
+    "https://placekitten.com/461/329",
+    "https://picsum.photos/1006/834",
+    "https://picsum.photos/181/923",
+    "https://picsum.photos/608/832",
+    "https://picsum.photos/61/14",
+    "https://placekitten.com/659/229",
+    "https://dummyimage.com/852x93",
+]
+
 
 fake = Faker()
 
@@ -22,9 +38,15 @@ with app.app_context():
         user = User(username=username, email=email, password=password)
         users.append(user)
 
+        # Hashing the password before storing it
+        hashed_password = generate_password_hash(password, method="bcrypt")
+
+        user = User(username=username, email=email, password=hashed_password)
+        users.append(user)
+
     # Create fake dog houses
     dog_houses = []
-    for _ in range(10):
+    for i in range(10):
         name = fake.company()
         location = fake.city()
         description = fake.catch_phrase()
@@ -50,7 +72,7 @@ with app.app_context():
 
         description = descriptions.pop()
 
-        image_url = fake.image_url()
+        image_url = image_urls[i]
         amenities = [
             "Cozy Dog Beds",
             "Food and Water Bowls",
