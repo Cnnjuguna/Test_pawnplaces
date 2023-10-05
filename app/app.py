@@ -11,6 +11,7 @@ from models import db, DogHouse, User, Review
 from flask_cors import CORS
 from flask_marshmallow import Marshmallow
 from werkzeug.security import check_password_hash
+from flask_bcrypt import bcrypt
 
 # --------------------------------------------------------#
 from flask_wtf import FlaskForm

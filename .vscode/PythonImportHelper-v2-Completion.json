@@ -274,6 +274,14 @@
         "documentation": {}
     },
     {
+        "label": "bcrypt",
+        "importPath": "flask_bcrypt",
+        "description": "flask_bcrypt",
+        "isExtraImport": true,
+        "detail": "flask_bcrypt",
+        "documentation": {}
+    },
+    {
         "label": "FlaskForm",
         "importPath": "flask_wtf",
         "description": "flask_wtf",
