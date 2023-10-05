@@ -10,6 +10,7 @@ Flask-RESTful
 Flask-SQLAlchemy
 Flask-WTF
 Flask-Login
+Flask-JWT-Extended
 gunicorn
 honcho
 importlib-metadata

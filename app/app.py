@@ -39,7 +39,12 @@ from flask_login import (
     logout_user,
     current_user,
 )
-from flask_bcrypt import Bcrypt
+from flask_jwt_extended import (
+    JWTManager,
+    create_access_token,
+    jwt_required,
+    get_jwt_identity,
+)
 
 # ---------------------------------------------------------#
 import logging
@@ -61,12 +66,19 @@ login_manager = LoginManager()
 login_manager.login_view = "login"
 login_manager.init_app(app)
 
+
+# Generating a random 32-character hexadecimal string as the secret key
+secret_key = os.urandom(32).hex()
+
+
 # app.config["SECRET_KEY"] = "your_secret_key_here"
 app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL")
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config["JSONIFY_PRETTYPRINT_REGULAR"] = True
-cors = CORS(app)
+app.config["JWT_SECRET_KEY"] = secret_key
 
+cors = CORS(app)
+jwt = JWTManager(app)
 migrate = Migrate(app, db)
 db.init_app(app)
 
@@ -191,8 +203,8 @@ def home():
 
 
 # -----------------------------Routes for Login and Logout------------------------------#
-@app.route("/login", methods=["POST"])
-def login():
+@app.route("/jwt-login", methods=["POST"])
+def jwt_login():
     data = request.json
     email = data.get("email")
     password = data.get("password")
@@ -207,12 +219,21 @@ def login():
             user.password
         )  # Retrieve the hashed password from the database
 
-        if bcrypt.check_password_hash(stored_password, password):
-            # Successful login
-            return jsonify({"message": "Login successful"}), 200
+        if check_password_hash(stored_password, password):
+            # Successful login, generate an access token
+            access_token = create_access_token(identity=user.id)
+            return jsonify({"access_token": access_token}), 200
 
     # Invalid credentials
     return jsonify({"message": "Invalid login credentials"}), 401
+
+
+# Protected route
+@app.route("/protected", methods=["GET"])
+@jwt_required()
+def protected_route():
+    current_user = get_jwt_identity()
+    return jsonify(message=f"Hello, {current_user}! This is a protected route."), 200
 
 
 # Users will be redirected to the login page if they haven't logged in

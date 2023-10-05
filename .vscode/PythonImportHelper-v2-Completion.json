@@ -442,11 +442,35 @@
         "documentation": {}
     },
     {
-        "label": "Bcrypt",
-        "importPath": "flask_bcrypt",
-        "description": "flask_bcrypt",
+        "label": "JWTManager",
+        "importPath": "flask_jwt_extended",
+        "description": "flask_jwt_extended",
         "isExtraImport": true,
-        "detail": "flask_bcrypt",
+        "detail": "flask_jwt_extended",
+        "documentation": {}
+    },
+    {
+        "label": "create_access_token",
+        "importPath": "flask_jwt_extended",
+        "description": "flask_jwt_extended",
+        "isExtraImport": true,
+        "detail": "flask_jwt_extended",
+        "documentation": {}
+    },
+    {
+        "label": "jwt_required",
+        "importPath": "flask_jwt_extended",
+        "description": "flask_jwt_extended",
+        "isExtraImport": true,
+        "detail": "flask_jwt_extended",
+        "documentation": {}
+    },
+    {
+        "label": "get_jwt_identity",
+        "importPath": "flask_jwt_extended",
+        "description": "flask_jwt_extended",
+        "isExtraImport": true,
+        "detail": "flask_jwt_extended",
         "documentation": {}
     },
     {
@@ -798,16 +822,25 @@
         "kind": 2,
         "importPath": "app.app",
         "description": "app.app",
-        "peekOfCode": "def home():\n    response_dict = {\n        \"index\": \"Welcome to Paws and Places RESTful API.\",\n    }\n    response = make_response(jsonify(response_dict), 200)\n    return response\n# -----------------------------Routes for Login and Logout------------------------------#\n@app.route(\"/login\", methods=[\"POST\"])\ndef login():\n    data = request.json",
+        "peekOfCode": "def home():\n    response_dict = {\n        \"index\": \"Welcome to Paws and Places RESTful API.\",\n    }\n    response = make_response(jsonify(response_dict), 200)\n    return response\n# -----------------------------Routes for Login and Logout------------------------------#\n@app.route(\"/jwt-login\", methods=[\"POST\"])\ndef jwt_login():\n    data = request.json",
         "detail": "app.app",
         "documentation": {}
     },
     {
-        "label": "login",
+        "label": "jwt_login",
         "kind": 2,
         "importPath": "app.app",
         "description": "app.app",
-        "peekOfCode": "def login():\n    data = request.json\n    email = data.get(\"email\")\n    password = data.get(\"password\")\n    if not email or not password:\n        return jsonify({\"message\": \"Email and password are required\"}), 400\n    user = User.query.filter_by(email=email).first()\n    if user:\n        stored_password = (\n            user.password",
+        "peekOfCode": "def jwt_login():\n    data = request.json\n    email = data.get(\"email\")\n    password = data.get(\"password\")\n    if not email or not password:\n        return jsonify({\"message\": \"Email and password are required\"}), 400\n    user = User.query.filter_by(email=email).first()\n    if user:\n        stored_password = (\n            user.password",
+        "detail": "app.app",
+        "documentation": {}
+    },
+    {
+        "label": "protected_route",
+        "kind": 2,
+        "importPath": "app.app",
+        "description": "app.app",
+        "peekOfCode": "def protected_route():\n    current_user = get_jwt_identity()\n    return jsonify(message=f\"Hello, {current_user}! This is a protected route.\"), 200\n# Users will be redirected to the login page if they haven't logged in\n@app.route(\"/profile\")\n@login_required\ndef profile():\n    return jsonify({\"user_id\": current_user.id, \"username\": current_user.username}), 200\n@app.route(\"/logout\")\n@login_required",
         "detail": "app.app",
         "documentation": {}
     },
@@ -951,7 +984,7 @@
         "kind": 5,
         "importPath": "app.app",
         "description": "app.app",
-        "peekOfCode": "app = Flask(__name__)\nma = Marshmallow(app)\napi = Api(app)\nlogger = logging.getLogger(__name__)\nbcrypt = Bcrypt(app)\nlogin_manager = LoginManager()\nlogin_manager.login_view = \"login\"\nlogin_manager.init_app(app)\n# app.config[\"SECRET_KEY\"] = \"your_secret_key_here\"\napp.config[\"SQLALCHEMY_DATABASE_URI\"] = os.environ.get(\"DATABASE_URL\")",
+        "peekOfCode": "app = Flask(__name__)\nma = Marshmallow(app)\napi = Api(app)\nlogger = logging.getLogger(__name__)\nbcrypt = Bcrypt(app)\nlogin_manager = LoginManager()\nlogin_manager.login_view = \"login\"\nlogin_manager.init_app(app)\n# Generating a random 32-character hexadecimal string as the secret key\nsecret_key = os.urandom(32).hex()",
         "detail": "app.app",
         "documentation": {}
     },
@@ -960,7 +993,7 @@
         "kind": 5,
         "importPath": "app.app",
         "description": "app.app",
-        "peekOfCode": "ma = Marshmallow(app)\napi = Api(app)\nlogger = logging.getLogger(__name__)\nbcrypt = Bcrypt(app)\nlogin_manager = LoginManager()\nlogin_manager.login_view = \"login\"\nlogin_manager.init_app(app)\n# app.config[\"SECRET_KEY\"] = \"your_secret_key_here\"\napp.config[\"SQLALCHEMY_DATABASE_URI\"] = os.environ.get(\"DATABASE_URL\")\napp.config[\"SQLALCHEMY_TRACK_MODIFICATIONS\"] = False",
+        "peekOfCode": "ma = Marshmallow(app)\napi = Api(app)\nlogger = logging.getLogger(__name__)\nbcrypt = Bcrypt(app)\nlogin_manager = LoginManager()\nlogin_manager.login_view = \"login\"\nlogin_manager.init_app(app)\n# Generating a random 32-character hexadecimal string as the secret key\nsecret_key = os.urandom(32).hex()\n# app.config[\"SECRET_KEY\"] = \"your_secret_key_here\"",
         "detail": "app.app",
         "documentation": {}
     },
@@ -969,7 +1002,7 @@
         "kind": 5,
         "importPath": "app.app",
         "description": "app.app",
-        "peekOfCode": "api = Api(app)\nlogger = logging.getLogger(__name__)\nbcrypt = Bcrypt(app)\nlogin_manager = LoginManager()\nlogin_manager.login_view = \"login\"\nlogin_manager.init_app(app)\n# app.config[\"SECRET_KEY\"] = \"your_secret_key_here\"\napp.config[\"SQLALCHEMY_DATABASE_URI\"] = os.environ.get(\"DATABASE_URL\")\napp.config[\"SQLALCHEMY_TRACK_MODIFICATIONS\"] = False\napp.config[\"JSONIFY_PRETTYPRINT_REGULAR\"] = True",
+        "peekOfCode": "api = Api(app)\nlogger = logging.getLogger(__name__)\nbcrypt = Bcrypt(app)\nlogin_manager = LoginManager()\nlogin_manager.login_view = \"login\"\nlogin_manager.init_app(app)\n# Generating a random 32-character hexadecimal string as the secret key\nsecret_key = os.urandom(32).hex()\n# app.config[\"SECRET_KEY\"] = \"your_secret_key_here\"\napp.config[\"SQLALCHEMY_DATABASE_URI\"] = os.environ.get(\"DATABASE_URL\")",
         "detail": "app.app",
         "documentation": {}
     },
@@ -978,7 +1011,7 @@
         "kind": 5,
         "importPath": "app.app",
         "description": "app.app",
-        "peekOfCode": "logger = logging.getLogger(__name__)\nbcrypt = Bcrypt(app)\nlogin_manager = LoginManager()\nlogin_manager.login_view = \"login\"\nlogin_manager.init_app(app)\n# app.config[\"SECRET_KEY\"] = \"your_secret_key_here\"\napp.config[\"SQLALCHEMY_DATABASE_URI\"] = os.environ.get(\"DATABASE_URL\")\napp.config[\"SQLALCHEMY_TRACK_MODIFICATIONS\"] = False\napp.config[\"JSONIFY_PRETTYPRINT_REGULAR\"] = True\ncors = CORS(app)",
+        "peekOfCode": "logger = logging.getLogger(__name__)\nbcrypt = Bcrypt(app)\nlogin_manager = LoginManager()\nlogin_manager.login_view = \"login\"\nlogin_manager.init_app(app)\n# Generating a random 32-character hexadecimal string as the secret key\nsecret_key = os.urandom(32).hex()\n# app.config[\"SECRET_KEY\"] = \"your_secret_key_here\"\napp.config[\"SQLALCHEMY_DATABASE_URI\"] = os.environ.get(\"DATABASE_URL\")\napp.config[\"SQLALCHEMY_TRACK_MODIFICATIONS\"] = False",
         "detail": "app.app",
         "documentation": {}
     },
@@ -987,7 +1020,7 @@
         "kind": 5,
         "importPath": "app.app",
         "description": "app.app",
-        "peekOfCode": "bcrypt = Bcrypt(app)\nlogin_manager = LoginManager()\nlogin_manager.login_view = \"login\"\nlogin_manager.init_app(app)\n# app.config[\"SECRET_KEY\"] = \"your_secret_key_here\"\napp.config[\"SQLALCHEMY_DATABASE_URI\"] = os.environ.get(\"DATABASE_URL\")\napp.config[\"SQLALCHEMY_TRACK_MODIFICATIONS\"] = False\napp.config[\"JSONIFY_PRETTYPRINT_REGULAR\"] = True\ncors = CORS(app)\nmigrate = Migrate(app, db)",
+        "peekOfCode": "bcrypt = Bcrypt(app)\nlogin_manager = LoginManager()\nlogin_manager.login_view = \"login\"\nlogin_manager.init_app(app)\n# Generating a random 32-character hexadecimal string as the secret key\nsecret_key = os.urandom(32).hex()\n# app.config[\"SECRET_KEY\"] = \"your_secret_key_here\"\napp.config[\"SQLALCHEMY_DATABASE_URI\"] = os.environ.get(\"DATABASE_URL\")\napp.config[\"SQLALCHEMY_TRACK_MODIFICATIONS\"] = False\napp.config[\"JSONIFY_PRETTYPRINT_REGULAR\"] = True",
         "detail": "app.app",
         "documentation": {}
     },
@@ -996,7 +1029,7 @@
         "kind": 5,
         "importPath": "app.app",
         "description": "app.app",
-        "peekOfCode": "login_manager = LoginManager()\nlogin_manager.login_view = \"login\"\nlogin_manager.init_app(app)\n# app.config[\"SECRET_KEY\"] = \"your_secret_key_here\"\napp.config[\"SQLALCHEMY_DATABASE_URI\"] = os.environ.get(\"DATABASE_URL\")\napp.config[\"SQLALCHEMY_TRACK_MODIFICATIONS\"] = False\napp.config[\"JSONIFY_PRETTYPRINT_REGULAR\"] = True\ncors = CORS(app)\nmigrate = Migrate(app, db)\ndb.init_app(app)",
+        "peekOfCode": "login_manager = LoginManager()\nlogin_manager.login_view = \"login\"\nlogin_manager.init_app(app)\n# Generating a random 32-character hexadecimal string as the secret key\nsecret_key = os.urandom(32).hex()\n# app.config[\"SECRET_KEY\"] = \"your_secret_key_here\"\napp.config[\"SQLALCHEMY_DATABASE_URI\"] = os.environ.get(\"DATABASE_URL\")\napp.config[\"SQLALCHEMY_TRACK_MODIFICATIONS\"] = False\napp.config[\"JSONIFY_PRETTYPRINT_REGULAR\"] = True\napp.config[\"JWT_SECRET_KEY\"] = secret_key",
         "detail": "app.app",
         "documentation": {}
     },
@@ -1005,7 +1038,16 @@
         "kind": 5,
         "importPath": "app.app",
         "description": "app.app",
-        "peekOfCode": "login_manager.login_view = \"login\"\nlogin_manager.init_app(app)\n# app.config[\"SECRET_KEY\"] = \"your_secret_key_here\"\napp.config[\"SQLALCHEMY_DATABASE_URI\"] = os.environ.get(\"DATABASE_URL\")\napp.config[\"SQLALCHEMY_TRACK_MODIFICATIONS\"] = False\napp.config[\"JSONIFY_PRETTYPRINT_REGULAR\"] = True\ncors = CORS(app)\nmigrate = Migrate(app, db)\ndb.init_app(app)\n# # Cloudinary configuration",
+        "peekOfCode": "login_manager.login_view = \"login\"\nlogin_manager.init_app(app)\n# Generating a random 32-character hexadecimal string as the secret key\nsecret_key = os.urandom(32).hex()\n# app.config[\"SECRET_KEY\"] = \"your_secret_key_here\"\napp.config[\"SQLALCHEMY_DATABASE_URI\"] = os.environ.get(\"DATABASE_URL\")\napp.config[\"SQLALCHEMY_TRACK_MODIFICATIONS\"] = False\napp.config[\"JSONIFY_PRETTYPRINT_REGULAR\"] = True\napp.config[\"JWT_SECRET_KEY\"] = secret_key\ncors = CORS(app)",
+        "detail": "app.app",
+        "documentation": {}
+    },
+    {
+        "label": "secret_key",
+        "kind": 5,
+        "importPath": "app.app",
+        "description": "app.app",
+        "peekOfCode": "secret_key = os.urandom(32).hex()\n# app.config[\"SECRET_KEY\"] = \"your_secret_key_here\"\napp.config[\"SQLALCHEMY_DATABASE_URI\"] = os.environ.get(\"DATABASE_URL\")\napp.config[\"SQLALCHEMY_TRACK_MODIFICATIONS\"] = False\napp.config[\"JSONIFY_PRETTYPRINT_REGULAR\"] = True\napp.config[\"JWT_SECRET_KEY\"] = secret_key\ncors = CORS(app)\njwt = JWTManager(app)\nmigrate = Migrate(app, db)\ndb.init_app(app)",
         "detail": "app.app",
         "documentation": {}
     },
@@ -1014,7 +1056,7 @@
         "kind": 5,
         "importPath": "app.app",
         "description": "app.app",
-        "peekOfCode": "app.config[\"SQLALCHEMY_DATABASE_URI\"] = os.environ.get(\"DATABASE_URL\")\napp.config[\"SQLALCHEMY_TRACK_MODIFICATIONS\"] = False\napp.config[\"JSONIFY_PRETTYPRINT_REGULAR\"] = True\ncors = CORS(app)\nmigrate = Migrate(app, db)\ndb.init_app(app)\n# # Cloudinary configuration\ncloudinary.config(\n    cloud_name=os.environ.get(\"CLOUDINARY_CLOUD_NAME\"),\n    api_key=os.environ.get(\"CLOUDINARY_API_KEY\"),",
+        "peekOfCode": "app.config[\"SQLALCHEMY_DATABASE_URI\"] = os.environ.get(\"DATABASE_URL\")\napp.config[\"SQLALCHEMY_TRACK_MODIFICATIONS\"] = False\napp.config[\"JSONIFY_PRETTYPRINT_REGULAR\"] = True\napp.config[\"JWT_SECRET_KEY\"] = secret_key\ncors = CORS(app)\njwt = JWTManager(app)\nmigrate = Migrate(app, db)\ndb.init_app(app)\n# # Cloudinary configuration\ncloudinary.config(",
         "detail": "app.app",
         "documentation": {}
     },
@@ -1023,7 +1065,7 @@
         "kind": 5,
         "importPath": "app.app",
         "description": "app.app",
-        "peekOfCode": "app.config[\"SQLALCHEMY_TRACK_MODIFICATIONS\"] = False\napp.config[\"JSONIFY_PRETTYPRINT_REGULAR\"] = True\ncors = CORS(app)\nmigrate = Migrate(app, db)\ndb.init_app(app)\n# # Cloudinary configuration\ncloudinary.config(\n    cloud_name=os.environ.get(\"CLOUDINARY_CLOUD_NAME\"),\n    api_key=os.environ.get(\"CLOUDINARY_API_KEY\"),\n    api_secret=os.environ.get(\"CLOUDINARY_API_SECRET\"),",
+        "peekOfCode": "app.config[\"SQLALCHEMY_TRACK_MODIFICATIONS\"] = False\napp.config[\"JSONIFY_PRETTYPRINT_REGULAR\"] = True\napp.config[\"JWT_SECRET_KEY\"] = secret_key\ncors = CORS(app)\njwt = JWTManager(app)\nmigrate = Migrate(app, db)\ndb.init_app(app)\n# # Cloudinary configuration\ncloudinary.config(\n    cloud_name=os.environ.get(\"CLOUDINARY_CLOUD_NAME\"),",
         "detail": "app.app",
         "documentation": {}
     },
@@ -1032,7 +1074,16 @@
         "kind": 5,
         "importPath": "app.app",
         "description": "app.app",
-        "peekOfCode": "app.config[\"JSONIFY_PRETTYPRINT_REGULAR\"] = True\ncors = CORS(app)\nmigrate = Migrate(app, db)\ndb.init_app(app)\n# # Cloudinary configuration\ncloudinary.config(\n    cloud_name=os.environ.get(\"CLOUDINARY_CLOUD_NAME\"),\n    api_key=os.environ.get(\"CLOUDINARY_API_KEY\"),\n    api_secret=os.environ.get(\"CLOUDINARY_API_SECRET\"),\n)",
+        "peekOfCode": "app.config[\"JSONIFY_PRETTYPRINT_REGULAR\"] = True\napp.config[\"JWT_SECRET_KEY\"] = secret_key\ncors = CORS(app)\njwt = JWTManager(app)\nmigrate = Migrate(app, db)\ndb.init_app(app)\n# # Cloudinary configuration\ncloudinary.config(\n    cloud_name=os.environ.get(\"CLOUDINARY_CLOUD_NAME\"),\n    api_key=os.environ.get(\"CLOUDINARY_API_KEY\"),",
+        "detail": "app.app",
+        "documentation": {}
+    },
+    {
+        "label": "app.config[\"JWT_SECRET_KEY\"]",
+        "kind": 5,
+        "importPath": "app.app",
+        "description": "app.app",
+        "peekOfCode": "app.config[\"JWT_SECRET_KEY\"] = secret_key\ncors = CORS(app)\njwt = JWTManager(app)\nmigrate = Migrate(app, db)\ndb.init_app(app)\n# # Cloudinary configuration\ncloudinary.config(\n    cloud_name=os.environ.get(\"CLOUDINARY_CLOUD_NAME\"),\n    api_key=os.environ.get(\"CLOUDINARY_API_KEY\"),\n    api_secret=os.environ.get(\"CLOUDINARY_API_SECRET\"),",
         "detail": "app.app",
         "documentation": {}
     },
@@ -1041,7 +1092,16 @@
         "kind": 5,
         "importPath": "app.app",
         "description": "app.app",
-        "peekOfCode": "cors = CORS(app)\nmigrate = Migrate(app, db)\ndb.init_app(app)\n# # Cloudinary configuration\ncloudinary.config(\n    cloud_name=os.environ.get(\"CLOUDINARY_CLOUD_NAME\"),\n    api_key=os.environ.get(\"CLOUDINARY_API_KEY\"),\n    api_secret=os.environ.get(\"CLOUDINARY_API_SECRET\"),\n)\n# ----------------------------------------Forms for Input Validation---------------------------------------------------#",
+        "peekOfCode": "cors = CORS(app)\njwt = JWTManager(app)\nmigrate = Migrate(app, db)\ndb.init_app(app)\n# # Cloudinary configuration\ncloudinary.config(\n    cloud_name=os.environ.get(\"CLOUDINARY_CLOUD_NAME\"),\n    api_key=os.environ.get(\"CLOUDINARY_API_KEY\"),\n    api_secret=os.environ.get(\"CLOUDINARY_API_SECRET\"),\n)",
+        "detail": "app.app",
+        "documentation": {}
+    },
+    {
+        "label": "jwt",
+        "kind": 5,
+        "importPath": "app.app",
+        "description": "app.app",
+        "peekOfCode": "jwt = JWTManager(app)\nmigrate = Migrate(app, db)\ndb.init_app(app)\n# # Cloudinary configuration\ncloudinary.config(\n    cloud_name=os.environ.get(\"CLOUDINARY_CLOUD_NAME\"),\n    api_key=os.environ.get(\"CLOUDINARY_API_KEY\"),\n    api_secret=os.environ.get(\"CLOUDINARY_API_SECRET\"),\n)\n# ----------------------------------------Forms for Input Validation---------------------------------------------------#",
         "detail": "app.app",
         "documentation": {}
     },
