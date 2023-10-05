@@ -10,6 +10,7 @@ from flask_restful import Api, Resource, reqparse
 from models import db, DogHouse, User, Review
 from flask_cors import CORS
 from flask_marshmallow import Marshmallow
+from werkzeug.security import check_password_hash
 
 # --------------------------------------------------------#
 from flask_wtf import FlaskForm
@@ -30,11 +31,18 @@ from wtforms.validators import (
     ValidationError,
     NumberRange,
 )
-
-# from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
+from flask_login import (
+    LoginManager,
+    UserMixin,
+    login_user,
+    login_required,
+    logout_user,
+    current_user,
+)
+from flask_bcrypt import Bcrypt
 
 # ---------------------------------------------------------#
-
+import logging
 import cloudinary
 from cloudinary.uploader import upload
 from cloudinary.utils import cloudinary_url
@@ -45,6 +53,13 @@ import os
 app = Flask(__name__)
 ma = Marshmallow(app)
 api = Api(app)
+
+logger = logging.getLogger(__name__)
+bcrypt = Bcrypt(app)
+
+login_manager = LoginManager()
+login_manager.login_view = "login"
+login_manager.init_app(app)
 
 # app.config["SECRET_KEY"] = "your_secret_key_here"
 app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL")
@@ -100,10 +115,7 @@ class CreateNewReviewForm(FlaskForm):
     doghouse_id = IntegerField(
         "Dog House ID", validators=[InputRequired(), NumberRange(min=1)]
     )
-    status = SelectField(
-        "Status",
-        choices=[("Booked", "Booked"), ("Available", "Available"), ("Draft", "Draft")],
-    )
+    # is_booked = SelectField("is_booked", choices=[("Booked", "Booked"), ("Available", "Available"), ("Draft", "Draft")])
     submit = SubmitField("Create Review")
 
 
@@ -133,6 +145,7 @@ class DogHouseSchema(ma.Schema):
             "price_per_night",
             "image_url",
             "amenities",
+            "is_booked",
         )
 
 
@@ -158,7 +171,7 @@ api = Api(app)
 class Index(Resource):
     def get(self):
         response_dict = {
-            "index": "Welcome to the Newsletter RESTful API",
+            "index": "Welcome to the Paws and Places RESTful API",
         }
 
         response = make_response(jsonify(response_dict), 200)
@@ -170,11 +183,75 @@ class Index(Resource):
 @app.route("/")
 def home():
     response_dict = {
-        "index": "Welcome to the Newsletter RESTful API",
+        "index": "Welcome to Paws and Places RESTful API.",
     }
     response = make_response(jsonify(response_dict), 200)
 
     return response
+
+
+# -----------------------------Routes for Login and Logout------------------------------#
+@app.route("/login", methods=["POST"])
+def login():
+    data = request.json
+    email = data.get("email")
+    password = data.get("password")
+
+    user = User.query.filter_by(email=email).first()
+
+    if user and bcrypt.check_password_hash(user.password, password):
+        # Successful login
+        return jsonify({"message": "Login successful"}), 200
+    else:
+        # Invalid credentials
+        return jsonify({"message": "Invalid login credentials"}), 401
+
+
+# Users will be redirected to the login page if they haven't logged in
+@app.route("/profile")
+@login_required
+def profile():
+    return jsonify({"user_id": current_user.id, "username": current_user.username}), 200
+
+
+@app.route("/logout")
+@login_required
+def logout():
+    logout_user()
+    return jsonify({"message": "Logout successful"}), 200
+
+
+# ----------------------------Routes for SignUp----------------------------------#
+
+from flask import render_template, redirect, url_for, flash
+
+
+@app.route("/signup", methods=["GET", "POST"])
+def signup():
+    data = request.json
+    form = UserRegistrationForm(data=data)
+    if form.validate_on_submit():
+        # Creating a new user and adding them to the database
+        new_user = User(
+            username=form.username.data,
+            email=form.email.data,
+            password=bcrypt.generate_password_hash(form.password.data).decode("utf-8"),
+        )
+        db.session.add(new_user)
+        db.session.commit()
+
+        # This will Log the registration event
+        logger.info(f"User registered: {new_user.username}, {new_user.email}")
+
+        # Return a success response
+        return jsonify({"message": "Registration successful"}), 201
+    else:
+        # This will Log registration errors
+        errors = form.errors
+        logger.error(f"Registration failed due to errors: {errors}")
+
+        # Return an error response with status code 400
+        return jsonify({"message": "Registration failed", "errors": errors}), 400
 
 
 # User ROUTES
@@ -277,42 +354,30 @@ def get_doghouse_by_id(doghouse_id):
         return jsonify({"message": "Dog house deleted"}), 204
 
 
-# Route to create a DogHouse
+# Route to POST a doghouse
 @app.route("/doghouses", methods=["POST"])
 def create_dog_house_listing():
     data = request.json
 
-    # Serialize the amenities list to a string
-    amenities = data.get("amenities")
-    if amenities:
-        data["amenities"] = ",".join(amenities)
-
-    # Handling image uploads to Cloudinary
-    image = request.files.get("image")
-    if image:
-        result = upload(image)
-        image_url = result["secure_url"]  # Getting the Cloudinary URL
-        data["image_url"] = image_url
-
-    errors = doghouse_schema.validate(data)
-    if errors:
-        return jsonify(errors), 400
+    # Validate the "is_booked" attribute
+    if "is_booked" in data and data["is_booked"] not in ["Booked", "Available"]:
+        return (
+            jsonify(
+                {
+                    "message": "Invalid value for 'is_booked'. It must be 'Booked' or 'Available'"
+                }
+            ),
+            400,
+        )
 
     # Create a new DogHouse object and save it to the database
     new_doghouse = DogHouse(**data)
+
     db.session.add(new_doghouse)
     db.session.commit()
 
     result = doghouse_schema.dump(new_doghouse)
     return jsonify(result), 201
-
-
-# Route for Fetching Reviews by Doghouse ID
-@app.route("/doghouses/<int:doghouse_id>/reviews", methods=["GET"])
-def get_reviews_by_doghouse_id(doghouse_id):
-    reviews = Review.query.filter_by(doghouse_id=doghouse_id).all()
-    result = reviews_schema.dump(reviews)
-    return jsonify(result), 200
 
 
 # Reviews ROUTES
@@ -382,6 +447,16 @@ def delete_review_by_id(review_id):
     db.session.commit()
 
     return jsonify({"message": "Review deleted"}), 204
+
+
+@app.route("/doghouses/<int:doghouse_id>/reviews", methods=["GET"])
+def get_doghouse_reviews(doghouse_id):
+    # code to query the db and get the doghouse reviews
+    reviews = Review.query.filter_by(doghouse_id=doghouse_id).all()
+
+    reviews_data = [review.to_dict() for review in reviews]
+
+    return jsonify(reviews_data)
 
 
 if __name__ == "__main__":

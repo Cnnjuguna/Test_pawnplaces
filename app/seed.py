@@ -83,6 +83,7 @@ with app.app_context():
             price_per_night=price_per_night,
             image_url=image_url,
             amenities=amenities,
+            is_booked=random.choice(["Booked", "Available"]),
         )
         dog_houses.append(dog_house)
 
@@ -110,7 +111,9 @@ with app.app_context():
             review_text = review_texts.pop()
 
             dog_house = random.choice(dog_houses)
-            created_at = fake.date_time_between_dates(datetime_start=dog_house.created_at, datetime_end="now")
+            created_at = fake.date_time_between_dates(
+                datetime_start=dog_house.created_at, datetime_end="now"
+            )
             review = Review(
                 title=title,
                 body=review_text,
