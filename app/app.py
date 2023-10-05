@@ -231,33 +231,22 @@ def logout():
 from flask import render_template, redirect, url_for, flash
 
 
-@app.route("/signup", methods=["GET", "POST"])
+@app.route("/signup", methods=["POST"])
 def signup():
     data = request.json
-    form = UserRegistrationForm(data=data)
-    if form.validate_on_submit():
-        # Creating a new user and adding them to the database
-        new_user = User(
-            username=form.username.data,
-            email=form.email.data,
-            password=bcrypt.generate_password_hash(form.password.data).decode("utf-8"),
-        )
+    username = data.get("username")
+    email = data.get("email")
+    password = data.get("password")
 
-        db.session.add(new_user)
-        db.session.commit()
+    # Hashing the password before saving it
+    hashed_password = bcrypt.generate_password_hash(password).decode("utf-8")
 
-        # This will Log the registration event
-        logger.info(f"User registered: {new_user.username}, {new_user.email}")
+    # Create a new user
+    new_user = User(username=username, email=email, password=hashed_password)
 
-        # Return a success response
-        return jsonify({"message": "Registration successful"}), 201
-    else:
-        # This will Log registration errors
-        errors = form.errors
-        logger.error(f"Registration failed due to errors: {errors}")
-
-        # Return an error response with status code 400
-        return jsonify({"message": "Registration failed", "errors": errors}), 400
+    db.session.add(new_user)
+    db.session.commit()
+    return jsonify({"message": "User registered successfully"}), 201
 
 
 # User ROUTES

@@ -816,7 +816,7 @@
         "kind": 2,
         "importPath": "app.app",
         "description": "app.app",
-        "peekOfCode": "def profile():\n    return jsonify({\"user_id\": current_user.id, \"username\": current_user.username}), 200\n@app.route(\"/logout\")\n@login_required\ndef logout():\n    logout_user()\n    return jsonify({\"message\": \"Logout successful\"}), 200\n# ----------------------------Routes for SignUp----------------------------------#\nfrom flask import render_template, redirect, url_for, flash\n@app.route(\"/signup\", methods=[\"GET\", \"POST\"])",
+        "peekOfCode": "def profile():\n    return jsonify({\"user_id\": current_user.id, \"username\": current_user.username}), 200\n@app.route(\"/logout\")\n@login_required\ndef logout():\n    logout_user()\n    return jsonify({\"message\": \"Logout successful\"}), 200\n# ----------------------------Routes for SignUp----------------------------------#\nfrom flask import render_template, redirect, url_for, flash\n@app.route(\"/signup\", methods=[\"POST\"])",
         "detail": "app.app",
         "documentation": {}
     },
@@ -825,7 +825,7 @@
         "kind": 2,
         "importPath": "app.app",
         "description": "app.app",
-        "peekOfCode": "def logout():\n    logout_user()\n    return jsonify({\"message\": \"Logout successful\"}), 200\n# ----------------------------Routes for SignUp----------------------------------#\nfrom flask import render_template, redirect, url_for, flash\n@app.route(\"/signup\", methods=[\"GET\", \"POST\"])\ndef signup():\n    data = request.json\n    form = UserRegistrationForm(data=data)\n    if form.validate_on_submit():",
+        "peekOfCode": "def logout():\n    logout_user()\n    return jsonify({\"message\": \"Logout successful\"}), 200\n# ----------------------------Routes for SignUp----------------------------------#\nfrom flask import render_template, redirect, url_for, flash\n@app.route(\"/signup\", methods=[\"POST\"])\ndef signup():\n    data = request.json\n    username = data.get(\"username\")\n    email = data.get(\"email\")",
         "detail": "app.app",
         "documentation": {}
     },
@@ -834,7 +834,7 @@
         "kind": 2,
         "importPath": "app.app",
         "description": "app.app",
-        "peekOfCode": "def signup():\n    data = request.json\n    form = UserRegistrationForm(data=data)\n    if form.validate_on_submit():\n        # Creating a new user and adding them to the database\n        new_user = User(\n            username=form.username.data,\n            email=form.email.data,\n            password=bcrypt.generate_password_hash(form.password.data).decode(\"utf-8\"),\n        )",
+        "peekOfCode": "def signup():\n    data = request.json\n    username = data.get(\"username\")\n    email = data.get(\"email\")\n    password = data.get(\"password\")\n    # Hashing the password before saving it\n    hashed_password = bcrypt.generate_password_hash(password).decode(\"utf-8\")\n    # Create a new user\n    new_user = User(username=username, email=email, password=hashed_password)\n    db.session.add(new_user)",
         "detail": "app.app",
         "documentation": {}
     },
