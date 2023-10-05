@@ -56,7 +56,6 @@ import os
 
 
 app = Flask(__name__)
-ma = Marshmallow(app)
 api = Api(app)
 
 logger = logging.getLogger(__name__)
@@ -77,6 +76,7 @@ app.config["JSONIFY_PRETTYPRINT_REGULAR"] = True
 app.config["JWT_SECRET_KEY"] = secret_key
 
 cors = CORS(app)
+ma = Marshmallow(app)
 jwt = JWTManager(app)
 migrate = Migrate(app, db)
 db.init_app(app)
@@ -216,7 +216,7 @@ def jwt_login():
     if user:
         stored_password = (
             user.password
-        )  # Retrieving the hashed password from the database
+        )  # Retrieve the hashed password from the database
 
         if check_password_hash(stored_password, password):
             # Successful login, generate an access token
