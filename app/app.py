@@ -197,14 +197,17 @@ def login():
     email = data.get("email")
     password = data.get("password")
 
+    if not email or not password:
+        return jsonify({"message": "Email and password are required"}), 400
+
     user = User.query.filter_by(email=email).first()
 
     if user:
-        # Log hashed password from the database and the entered password
-        app.logger.debug(f"Stored Password Hash: {user.password}")
-        app.logger.debug(f"Entered Password: {password}")
+        stored_password = (
+            user.password
+        )  # Retrieve the hashed password from the database
 
-        if bcrypt.check_password_hash(user.password, password):
+        if bcrypt.check_password_hash(stored_password, password):
             # Successful login
             return jsonify({"message": "Login successful"}), 200
 
