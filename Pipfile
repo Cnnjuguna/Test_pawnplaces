@@ -24,6 +24,7 @@ honcho = "*"
 importlib-metadata = "*"
 flask-login = "*"
 flask-bcrypt = "*"
+werkzeug = "==2.3.0"
 
 [dev-packages]
 
