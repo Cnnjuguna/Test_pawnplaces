@@ -199,14 +199,17 @@ def login():
 
     user = User.query.filter_by(email=email).first()
 
-    if user and bcrypt.check_password_hash(
-        user.password, password
-    ):  # Compare hashes directly
-        # Successful login
-        return jsonify({"message": "Login successful"}), 200
-    else:
-        # Invalid credentials
-        return jsonify({"message": "Invalid login credentials"}), 401
+    if user:
+        # Log hashed password from the database and the entered password
+        app.logger.debug(f"Stored Password Hash: {user.password}")
+        app.logger.debug(f"Entered Password: {password}")
+
+        if bcrypt.check_password_hash(user.password, password):
+            # Successful login
+            return jsonify({"message": "Login successful"}), 200
+
+    # Invalid credentials
+    return jsonify({"message": "Invalid login credentials"}), 401
 
 
 # Users will be redirected to the login page if they haven't logged in
